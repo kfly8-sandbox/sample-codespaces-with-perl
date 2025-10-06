@@ -1,0 +1,13 @@
+{
+  "name": "Perl Development Environment",
+  "image": "perl:5.42.0-slim",
+  "postCreateCommand": "cpanm Carton && carton install",
+  "forwardPorts": [3000],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "richterger.perl"
+      ]
+    }
+  }
+}
