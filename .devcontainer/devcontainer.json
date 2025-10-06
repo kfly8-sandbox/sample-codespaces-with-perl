@@ -1,7 +1,9 @@
 {
   "name": "Perl Development Environment",
-  "image": "perl:5.42.0-slim",
-  "postCreateCommand": "apt-get update && apt-get install -y locales && locale-gen en_US.UTF-8 && cpanm Carton && carton install",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "postCreateCommand": "carton exec -- morbo app.pl",
   "forwardPorts": [3000],
   "customizations": {
     "vscode": {
@@ -9,9 +11,5 @@
         "richterger.perl"
       ]
     }
-  },
-  "remoteEnv": {
-    "LANG": "en_US.UTF-8",
-    "LC_ALL": "en_US.UTF-8"
   }
 }
